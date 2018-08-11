@@ -24,6 +24,7 @@ public class EmailService {
 		AccountPage accountPage = homePage.clickSubmitBtn();
 		return accountPage.isTextPresentOnPage(text);
 	}
+// 	according to code naming convention if a method returns a boolean value, its name should start from is, has etc. E.g. isLogInSuccessful
 
 	public void createEmail(Email email) {
 		Reporter.log("Email creation is started...");
@@ -37,6 +38,7 @@ public class EmailService {
 	}
 
 	public boolean checkEmailInDraftFolder(Email email) {
+// 		isEmailPresentInDraftsFolder
 		Reporter.log("Check if email exists in Draft folder...");
 		AccountPage accountPage = new AccountPage(
 				WebDriverSingleton.getWebDriverInstance());
@@ -66,6 +68,7 @@ public class EmailService {
 				WebDriverSingleton.getWebDriverInstance());
 		AccountPage accountPage = createEmailPage.clickMailSendBtn();
 		return accountPage.isElementPresent(accountPage.mailSentTitle);
+// 		this method can be void and accountPage.isElementPresent(accountPage.mailSentTitle); can be removed, since it's never checked in tests
 	}
 
 	public void refreshPage() {
@@ -75,6 +78,7 @@ public class EmailService {
 	}
 
 	public boolean checkEmailInSentFolder(Email email) {
+// 		isEmailPresentInSentFolder
 		Reporter.log("Check if email is in sent folder...");
 		AccountPage accountPage = new AccountPage(
 				WebDriverSingleton.getWebDriverInstance());
@@ -87,6 +91,7 @@ public class EmailService {
 				WebDriverSingleton.getWebDriverInstance());
 		accountPage.clickMailIncomingMenuLink();
 		return accountPage.isTextPresentOnPage(email.getSubject());
+// 		this method is not used in tests, can be removed
 	}
 
 	public void deleteIncomingMail(int indexOfemail) {
@@ -96,6 +101,7 @@ public class EmailService {
 	}
 
 	public boolean checkEmailInIncomingFolderBySubject(
+// 		isEmailPresent...
 			String subjectDeleteIncomingMail) {
 		IncomingPage incomingPage = new IncomingPage(
 				WebDriverSingleton.getWebDriverInstance());
@@ -106,6 +112,7 @@ public class EmailService {
 		AccountPage accountPage = new AccountPage(
 				WebDriverSingleton.getWebDriverInstance());
 		refreshPage();
+// 		please remove refreshPage from this method and call it as a separate service method from a test. The same should be done for the next methods with refresh
 		BasketPage basketPage = accountPage.clickBasketMenuLink();
 		return basketPage.isTextPresentOnPage(subjectDeleteIncomingMail);
 	}
