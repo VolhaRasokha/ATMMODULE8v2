@@ -23,6 +23,6 @@ public class User {
 		return "User [login=" + login + ", password=" + password + "]";
 	}
 	
-	
+// 	Please add "setters"
 
 }
