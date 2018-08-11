@@ -25,3 +25,4 @@ public class Email {
 	}
 
 }
+// Please add "setters"
