@@ -30,7 +30,7 @@ public class TestBase {
 	User secondUser = new User(MAILRU_LOGIN_SECOND_ACCOUNT,MAILRU_PASSWORD_SECOND_ACCOUNT);
 	
 	Email email = EmailUtils.getDefaultEmail();
-
+// please add access modifiers to users and email
 	
 	@BeforeClass
 	public HomePage startBrowser(){
